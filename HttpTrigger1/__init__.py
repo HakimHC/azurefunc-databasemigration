@@ -4,7 +4,8 @@ import azure.functions as func
 
 import pyodbc
 import pymongo
-from database_migrator import ss_to_mongo
+
+from HttpTrigger1.database_migrator import ss_to_mongo
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -18,11 +19,3 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse("Success.", status_code=200)
     except Exception as e:
         logging.error(e)
-
-    # if name:
-    #     return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
-    # else:
-    #     return func.HttpResponse(
-    #          "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-    #          status_code=200
-    #     )
